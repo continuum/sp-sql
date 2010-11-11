@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="lib/|web/|src/|src/|resources/" kind="src" path=""/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="lib/Common.jar"/>
+	<classpathentry kind="lib" path="lib/commons-api-continuum.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool.jar"/>
+	<classpathentry kind="lib" path="lib/db2fs.jar"/>
+	<classpathentry kind="lib" path="lib/db2java.zip"/>
+	<classpathentry kind="lib" path="lib/db2jcc_javax.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc_license_cisuz.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc.jar"/>
+	<classpathentry kind="lib" path="lib/db2policy.jar"/>
+	<classpathentry kind="lib" path="lib/db2qgjava.jar"/>
+	<classpathentry kind="lib" path="lib/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/j2ee-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/json-lib-2.2.3-jdk13.jar"/>
+	<classpathentry kind="lib" path="lib/json.jar"/>
+	<classpathentry kind="lib" path="lib/jt400Native.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-3.1.11-bin.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/spring.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
