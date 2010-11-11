@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="lib/|web/|src/|src/|resources/" kind="src" path=""/>
+	<classpathentry excluding="web/|lib/|src/|src/|resources/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/cglib-nodep-2.1_3.jar"/>
 	<classpathentry kind="lib" path="lib/Common.jar"/>
