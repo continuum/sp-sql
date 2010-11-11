@@ -1,0 +1,35 @@
+/*
+ *	cui-colors.css
+ 
+ *	Copyright (c) 2009, Continuum Ltda. All rights reserved.
+ *	Code licensed under the BSD License:
+ *	version: 1.0
+ */
+ 
+.blue {
+	background-color: blue;
+}
+.antiquewhite {
+	background-color: antiquewhite;
+}
+.chartreuse {
+	background-color: chartreuse; 
+}
+.darkseagreen {
+	background-color: darkseagreen;
+}
+.gold {
+	background-color: gold;
+}
+.teal {
+	background-color: teal;
+}
+.tomato {
+	background-color: tomato;
+}
+.lightslategray {
+	background-color: lightslategray;
+}
+.mediumseagreen {
+	background-color: mediumseagreen;
+}

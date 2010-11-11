@@ -1,0 +1,16 @@
+/*
+ *	ui.themes.defaults.custom.css
+ *
+ *	Copyright (c) 2009, Continuum Ltda. All rights reserved.
+ *	Code licensed under the BSD License:
+ *	version: 1.0
+ */
+#hd, #ft {
+	font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
+.ui-default-header {
+	color: #fff;
+}
+.ui-tabs .ui-tabs-nav li a {
+	padding:0.5em 0.6em;
+}

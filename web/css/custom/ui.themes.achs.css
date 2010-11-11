@@ -1,0 +1,44 @@
+/*
+ *	ui.themes.achs.css
+ *
+ *	Copyright (c) 2009, Continuum Ltda. All rights reserved.
+ *	Code licensed under the BSD License:
+ *	version: 1.0
+ */
+#hd, #ft {
+	font-family: Metaplus, Arial, "trebuchet ms", verdana, arial, sans-serif;
+}
+
+#hd {
+	background:#006600;
+}
+
+
+.ui-default-header {
+	color: #fff;
+}
+a {
+	font-weight: bold;
+}
+a.ui-href-back-light:link {
+	color: #cc6600;
+}
+a.ui-href-back-light:visited {
+	color: #669933;
+}
+a.ui-href-back-light:hover {
+	color: #000;
+}
+a.ui-href-back-strong:link {
+	color: #fff;
+}
+a.ui-href-back-strong:visited {
+	color: #fcf0ba;
+}
+a.ui-href-back-strong:hover {
+	color: #000;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding:0.5em 0.6em;
+}

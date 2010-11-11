@@ -1,0 +1,80 @@
+/*
+ *	ui.themes.all.css
+ *
+ *	Copyright (c) 2009, Continuum Ltda. All rights reserved.
+ *	Code licensed under the BSD License:
+ *	version: 1.0
+ */
+.ui-widget {
+	font-size: 100%;
+	*font-size: 93%;
+}
+
+.ui-default-header {
+	text-align: center;
+	padding: 0.5em 0.2em;
+}
+
+.ui-widget-content p {
+	padding: 0.3846em;
+	*padding: 0.3750em;
+}
+
+/* about inside widget content */
+.ui-widget-text-content {
+	padding: 1em 1.4em;
+}
+
+.ui-button-link {
+	padding:0.4em 1em 0.4em 20px;
+	position:relative;
+	text-decoration:none;
+}
+.ui-button-link-table {
+	padding:0.2em 0.2em 0.2em 5px;
+	position:relative;
+	text-decoration:none;
+}
+
+.ui-bbar {
+	padding-top:10px;
+	text-align: right;
+}
+
+.ui-tabs .ui-tabs-panel {
+	padding: 0;
+}
+
+.ui-tabs .ui-tabs-panel .ui-text-content {
+	padding: 1em 1.4em; 
+}
+
+
+
+ol li {
+	list-style: decimal;
+}
+/*
+p {
+	padding-bottom: 2em;
+}*/
+.ui-text-intro p {
+	font-size: 131%;
+}
+
+td {
+	padding: 5px;
+	margin: 5px;
+}
+
+thead td {
+	text-align: center;
+}
+
+.ui-default-header a {
+	color: #fff;
+}
+
+.ui-default-header a:hover {
+	color: #000;
+}

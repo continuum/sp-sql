@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+<!--
+  Build file for the framework de errores.
+-->
+
+<project name="spsql" default="usage" basedir=".">
+
+	<property file="build.properties"/>
+	<property file="project.properties"/>
+
+	<path id="all-libs">
+
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+
+	</path>
+
+	<tstamp>
+	    <format property="build.date" pattern="yyyyMMdd" locale="es, cl"/>
+	</tstamp>
+
+	<target name="initdist" description="Initialize the distribution directory">
+
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${web.dir}/WEB-INF/lib"/>
+
+	</target>
+	
+	<target name="usage">
+
+
+		<echo message=""/>
+		<echo message="${prj-title} build file"/>
+		<echo message="------------------------------------------------------"/>
+		<echo message=""/>
+		<echo message="Among the available targets are:"/>
+		<echo message=""/>
+		<echo message="clean    --> Clean all generated directories"/>
+		<echo message="compile  --> Compile project and tests"/>
+		<echo message="jar 	    --> create project jar file"/>
+		<echo message="all	    --> clean,jar"/>
+		<echo message=""/>
+
+	</target>
+	
+	<target name="clean" description="Clean all output dirs (dist, javadocs, classes, test-classes, etc)">
+
+		<delete dir="${target.classes.dir}"/>
+		<delete dir="${target.testclasses.dir}"/>
+		<delete dir="${target.release.dir}"/>
+		<delete dir="${target.otherclasses.dir}"/>
+		<delete dir="${web.dir}/WEB-INF/lib"/>
+		
+		<!-- Just kill target dir (it's safer). No need at this point to keep it. -->
+		<delete dir="${target.dir}"/>
+
+		<delete dir="${dist.dir}"/>
+		<delete dir="${javadoc.dir}"/>
+
+	</target>
+	
+	<target name="update-version">
+		<!--
+		<exec executable="svnversion" spawn="false" output="web/WEB-INF/vm-templates/frames/svnversion.vm"/> 
+		<exec executable="date" spawn="false" output="web/WEB-INF/vm-templates/frames/builddate.vm"/>
+		<exec executable="date" spawn="false" outputproperty="app.version"/>		
+		-->
+	</target>
+	
+
+	<target name="copy-runtime-jars-to-lib" >
+		<copy todir="${web.dir}/WEB-INF/lib" preservelastmodified="true">
+
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${dist.dir}">
+				<include name="${prj-name}.jar"/>
+			</fileset>
+		</copy>
+	</target>
+		
+	<!--
+		Compile the main source tree.
+	-->
+	<target name="compile" description="Compile main source tree java files into class files">
+
+		<mkdir dir="${target.classes.dir}"/>
+		<mkdir dir="${target.classes.dir}/META-INF"/>
+
+		<javac destdir="${target.classes.dir}" source="1.5" target="1.5" debug="${debug}" deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}"/>
+			<classpath refid="all-libs"/>
+		</javac>
+
+		<copy todir="${target.classes.dir}" preservelastmodified="true">
+			<fileset dir="${src.dir}">
+				<include name="**/*.properties"/>
+				<include name="**/*.xml"/>
+				<include name="**/*.dtd"/>
+				<include name="**/*.vm"/>
+			</fileset>
+		</copy>
+
+	</target>
+
+	<target name="jar" depends="compile" description="Create module-specific JAR files">
+
+		<jar jarfile="${dist.dir}/${prj-name}.jar" basedir="${target.classes.dir}">
+			<manifest>
+				<attribute name="Implementation-Title" value="${prj-title}"/>
+				<attribute name="Implementation-Version" value="${prj-version}"/>
+			</manifest>
+		</jar>
+
+	</target>
+
+	<target name="war" depends="initdist,jar" description="Build the web application archive">
+		<antcall target="copy-runtime-jars-to-lib" />
+		<war warfile="${dist.dir}/${war.name}.war" basedir="${web.dir}" webxml="${web.dir}/WEB-INF/web.xml">
+			<include name="*"/>
+		    <include name="css/**"/>
+		    <include name="img/**"/>
+		    <include name="js/**"/>
+			<include name="WEB-INF/*.xml"/>
+			<include name="WEB-INF/*.tld"/>
+			<include name="WEB-INF/lib/**"/>
+		    <include name="WEB-INF/classes/**"/>
+			<include name="WEB-INF/*.properties"/>
+			<exclude name="WEB-INF/web.xml"/>
+		</war>
+	</target>
+	
+	<target name="ear" depends="update-version, war, deployremote">
+    	<ear destfile="${dist.dir}/${ear.name}.ear" appxml="${basedir}/resources/application.xml">
+    		<fileset dir="${dist.dir}" includes="*.war"/>
+	    </ear>
+	</target>
+		
+	<target name="all" depends="ear" />
+
+	<target name="cp">
+		
+		<scp todir="vutreras:admin@192.168.0.220:/victor8080/webapps/160006/" sftp="true" >
+			<fileset dir="${web.dir}"/>
+      	</scp>
+	
+	</target>
+
+	<target name="deployremote">
+		<echo message="Copiando archivos a: ${path.deploy.remote.project}"/>
+		<scp todir="${path.deploy.remote.project}" sftp="true"  file="${dist.dir}/${war.name}.war">
+      	</scp>
+	</target>
+
+</project>

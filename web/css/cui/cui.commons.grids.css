@@ -1,0 +1,15 @@
+/*
+ *	cui-commons.grids.css
+ *
+ *	Copyright (c) 2009, Continuum Ltda. All rights reserved.
+ *	Code licensed under the BSD License:
+ *	version: 1.0
+ */
+
+#doc-610 {
+	margin:auto;
+	text-align:left;
+	width:46.924em; /* 610/13 */
+	*width:45.750em; /* 610/13.333 */
+	min-width:750px;
+}
